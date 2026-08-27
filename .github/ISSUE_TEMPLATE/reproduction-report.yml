@@ -1,0 +1,37 @@
+name: External reproduction report
+description: Share a sanitized DoneCanary run result
+title: "[Reproduction]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please sanitize result files before attaching them. Never post credentials, tokens, API keys, or unreviewed full logs.
+  - type: input
+    id: os
+    attributes:
+      label: OS and architecture
+    validations:
+      required: true
+  - type: input
+    id: agent
+    attributes:
+      label: Agent CLI and version
+      placeholder: codex-cli x.y.z
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Sanitized `done-canary doctor` output
+    validations:
+      required: true
+  - type: input
+    id: result
+    attributes:
+      label: PASS / FAIL / NOT RUN counts and applicable coverage
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Unexpected behavior or comprehension notes

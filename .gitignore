@@ -1,0 +1,8 @@
+/bin/
+/dist/
+/coverage.out
+/done-canary-data/
+/output/
+/.playwright-cli/
+*.exe
+*.test

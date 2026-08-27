@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use DoneCanary, please cite it using this metadata."
+title: "DoneCanary"
+type: software
+version: "0.1.0-rc.3"
+authors:
+  - name: "美濃加茂まむ"
+    alias: "superdoccimo"
+repository-code: "https://github.com/superdoccimo/done-canary"
+url: "https://github.com/superdoccimo/done-canary"
+license: MIT

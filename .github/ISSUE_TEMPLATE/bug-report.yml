@@ -1,0 +1,40 @@
+name: Bug report
+description: Report a reproducible DoneCanary defect
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include API keys, tokens, credentials, or unreviewed full logs.
+  - type: input
+    id: version
+    attributes:
+      label: DoneCanary version
+      placeholder: 0.1.0-rc.3
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: OS and architecture
+      placeholder: Windows 11 amd64
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true

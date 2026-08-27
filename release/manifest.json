@@ -1,0 +1,29 @@
+{
+  "version": "0.1.0-rc.3",
+  "artifacts": [
+    {
+      "os": "windows",
+      "arch": "amd64",
+      "binary": "done-canary.exe",
+      "package_format": "zip",
+      "file": "done-canary-v0.1.0-rc.3-windows-amd64.zip"
+    },
+    {
+      "os": "linux",
+      "arch": "amd64",
+      "binary": "done-canary",
+      "package_format": "tar.gz",
+      "file": "done-canary-v0.1.0-rc.3-linux-amd64.tar.gz"
+    },
+    {
+      "os": "darwin",
+      "arch": "amd64",
+      "binary": "done-canary",
+      "package_format": "tar.gz",
+      "file": "done-canary-v0.1.0-rc.3-darwin-amd64.tar.gz"
+    }
+  ],
+  "checksum_file": "checksums-sha256.txt",
+  "checksum": "sha256",
+  "public_release": false
+}

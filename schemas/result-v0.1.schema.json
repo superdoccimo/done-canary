@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/done-canary/schemas/result-v0.1.schema.json",
+  "title": "DoneCanary result v0.1",
+  "type": "object",
+  "required": [
+    "schema_version", "run_id", "started_at", "ended_at", "agent", "host",
+    "fixture_version", "infrastructure_status", "canaries", "score", "process"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "run_id": {"type": "string", "minLength": 1},
+    "started_at": {"type": "string", "format": "date-time"},
+    "ended_at": {"type": "string", "format": "date-time"},
+    "agent": {
+      "type": "object",
+      "required": ["name", "version", "invocation"],
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "invocation": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": true
+    },
+    "host": {
+      "type": "object",
+      "required": ["os", "arch"],
+      "properties": {"os": {"type": "string"}, "arch": {"type": "string"}},
+      "additionalProperties": true
+    },
+    "fixture_version": {"const": "0.1"},
+    "infrastructure_status": {"enum": ["ok", "error", "interrupted"]},
+    "infrastructure_error": {"type": "string"},
+    "canaries": {
+      "type": "array",
+      "minItems": 7,
+      "maxItems": 7,
+      "items": {
+        "type": "object",
+        "required": ["id", "status", "summary", "evidence"],
+        "properties": {
+          "id": {
+            "enum": [
+              "instructions_respected", "required_change", "tests_pass",
+              "build_lint_pass", "hook_respected", "test_integrity", "scope_hygiene"
+            ]
+          },
+          "status": {"enum": ["pass", "fail", "not_run"]},
+          "summary": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": true
+      }
+    },
+    "score": {
+      "type": "object",
+      "required": ["passed", "total"],
+      "properties": {
+        "passed": {"type": "integer", "minimum": 0, "maximum": 7},
+        "total": {"const": 7}
+      },
+      "additionalProperties": true
+    },
+    "process": {
+      "type": "object",
+      "required": ["exit_code", "timed_out", "interrupted", "log_truncated"],
+      "properties": {
+        "exit_code": {"type": "integer"},
+        "timed_out": {"type": "boolean"},
+        "interrupted": {"type": "boolean"},
+        "log_truncated": {"type": "boolean"}
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}
